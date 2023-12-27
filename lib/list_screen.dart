@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_todolist/create_screen.dart';
 import 'package:my_todolist/todo.dart';
 
+import 'main.dart';
+
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
 
@@ -10,20 +12,6 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
-  final todos = [
-    Todo(
-      title: 'title 1',
-      dateTime: 12321,
-    ),
-    Todo(
-      title: 'title 2',
-      dateTime: 12321123,
-    ),
-    Todo(
-      title: 'title 2',
-      dateTime: 12321123,
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +20,7 @@ class _ListScreenState extends State<ListScreen> {
         title: const Text('Todo 리스트'),
       ),
       body: ListView(
-        children: todos
+        children: todos.values
             .map((todo) => ListTile(
                   title: Text(todo.title),
                   subtitle: Text('${todo.dateTime}'),
