@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'todo.dart';
 
@@ -22,12 +23,13 @@ class TodoItem extends StatelessWidget {
           ? const Icon(Icons.check_circle, color: Color(0xffffbbaa))
           : const Icon(Icons.check_circle_outline),
       title: Text(
-          todo.title,
-          style: TextStyle(color: todo.isDone ? Colors.grey : Colors.black),
+        todo.title,
+        style: TextStyle(color: todo.isDone ? Colors.grey : Colors.black),
       ),
       subtitle: Text(
-          '${todo.dateTime}',
-          style: TextStyle(color: todo.isDone ? Colors.grey : Colors.black),
+        DateFormat.yMMMd()
+            .format(DateTime.fromMillisecondsSinceEpoch(todo.dateTime)),
+        style: TextStyle(color: todo.isDone ? Colors.grey : Colors.black),
       ),
     );
   }
